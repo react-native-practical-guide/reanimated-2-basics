@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "reanimated01",
-    "slug": "reanimated01",
+    "name": "reanimated-2-basics",
+    "slug": "reanimated-2-basics",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
