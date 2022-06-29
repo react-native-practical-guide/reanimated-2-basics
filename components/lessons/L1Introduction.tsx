@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { View } from "react-native";
 import Animated, {
   Easing,
   useAnimatedStyle,
@@ -7,8 +8,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-
-const SIZE = 100.0;
+import defaultStyles, { SIZE } from "../../styles/defaultStyles";
 
 const handleRotation = (progress: Animated.SharedValue<number>) => {
   "worklet";
@@ -40,15 +40,10 @@ export default function L1Introduction() {
   }, []);
 
   return (
-    <Animated.View
-      style={[
-        {
-          height: SIZE,
-          width: SIZE,
-          backgroundColor: "blue",
-        },
-        reanimatedStyle,
-      ]}>
-    </Animated.View>
+    <View style={defaultStyles.container} >
+      <Animated.View
+        style={[defaultStyles.square, reanimatedStyle]}>
+      </Animated.View>
+    </View>
   );
 }
