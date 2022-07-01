@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import { StyleSheet } from 'react-native'
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withSpring, withTiming } from 'react-native-reanimated';
+import defaultStyles from '../../styles/defaultStyles';
 
-const SIZE = 100;
 const handleRotation = (rotate: Animated.SharedValue<number>) => {
   "worklet";
   return `${rotate.value}rad`
@@ -38,20 +37,10 @@ const L1Play = () => {
 
   return (
     <Animated.View
-      style={[styles.square, animStyle]}
+      style={[defaultStyles.squareRgba, animStyle]}
     >
     </Animated.View>
   )
 }
-
-const styles = StyleSheet.create({
-  square: {
-    width: SIZE,
-    height: SIZE,
-    borderRadius: 20,
-    backgroundColor: 'blue',
-  }
-})
-
 
 export default L1Play
