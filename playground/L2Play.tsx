@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { View } from 'react-native';
 import { PanGestureHandler, PanGestureHandlerGestureEvent } from 'react-native-gesture-handler';
 import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withDelay, withSequence, withSpring, withTiming } from 'react-native-reanimated';
-import defaultStyles from '../../styles/defaultStyles';
+import defaultStyles from '../styles/defaultStyles';
 
 /* Drag the square and when you leave it, it springs back to where you draged it from. Then it slides to where you acually left it. */
 
@@ -38,6 +38,7 @@ const L2Play = () => {
       // translateX.value = withSpring(ctxXonStart.value);
       // translateY.value = withSpring(ctxYonStart.value);
 
+      /* setTimeout works without side effects, but it's on the JS thread...  */
       // setTimeout(() => {
       // translateX.value = withDelay(1000, withTiming(translateXPrev.value));
       // translateY.value = withDelay(1000, withTiming(translateYPrev.value));

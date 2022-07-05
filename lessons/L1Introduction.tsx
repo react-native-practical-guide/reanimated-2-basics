@@ -8,7 +8,7 @@ import Animated, {
   withSpring,
   withTiming,
 } from "react-native-reanimated";
-import defaultStyles, { SIZE } from "../../styles/defaultStyles";
+import defaultStyles, { SIZE } from "../styles/defaultStyles";
 
 const handleRotation = (progress: Animated.SharedValue<number>) => {
   "worklet";

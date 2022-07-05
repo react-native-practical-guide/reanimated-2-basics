@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import { PanGestureHandler, PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
 import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
-import defaultStyles, { CIRCLE_RADIUS, SIZE } from "../../styles/defaultStyles";
+import defaultStyles, { CIRCLE_RADIUS, SIZE } from "../styles/defaultStyles";
 
 type ContextType = {
   translateX: number;

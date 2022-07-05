@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Animated, { useAnimatedStyle, useSharedValue, withDelay, withSpring, withTiming } from 'react-native-reanimated';
-import defaultStyles from '../../styles/defaultStyles';
+import defaultStyles from '../styles/defaultStyles';
 
 const handleRotation = (rotate: Animated.SharedValue<number>) => {
   "worklet";
