@@ -13,6 +13,22 @@ const defaultStyles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  circle: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: CIRCLE_RADIUS * 2,
+    height: CIRCLE_RADIUS * 2,
+    borderRadius: CIRCLE_RADIUS,
+    borderWidth: 5,
+    borderColor: secondary,
+    margin: 10,
+  },
+  page: {
+    height,
+    width,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   square: {
     width: SIZE,
     height: SIZE,
@@ -29,15 +45,11 @@ const defaultStyles = StyleSheet.create({
     backgroundColor: secondary,
     borderRadius: 20,
   },
-  circle: {
-    alignItems: "center",
-    justifyContent: "center",
-    width: CIRCLE_RADIUS * 2,
-    height: CIRCLE_RADIUS * 2,
-    borderRadius: CIRCLE_RADIUS,
-    borderWidth: 5,
-    borderColor: secondary,
-    margin: 10,
+  text: {
+    fontSize: 70,
+    color: "white",
+    textTransform: "uppercase",
+    fontWeight: "700",
   },
 });
 

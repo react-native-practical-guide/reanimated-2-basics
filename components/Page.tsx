@@ -26,26 +26,11 @@ export default function Page({ title, index, translateX }: Props) {
   })
 
   return (
-    <View style={[{ backgroundColor: `rgba(0,0,256, 0.${index + 2})` }, styles.page]} >
+    <View style={[{ backgroundColor: `rgba(0,0,256, 0.${index + 2})` }, defaultStyles.page]} >
       <Animated.View style={[defaultStyles.square07, rPageStyle]} />
       <Animated.View style={[{ position: 'absolute' }, rTextStyle]} >
-        <Text style={styles.text} >{title}</Text>
+        <Text style={defaultStyles.text} >{title}</Text>
       </Animated.View>
     </View >
   )
 }
-
-const styles = StyleSheet.create({
-  page: {
-    height,
-    width,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text: {
-    fontSize: 70,
-    color: 'white',
-    textTransform: 'uppercase',
-    fontWeight: '700'
-  }
-})
