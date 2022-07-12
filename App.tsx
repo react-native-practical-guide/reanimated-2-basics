@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler'; // IMPORTANT !!!
+import React from 'react';
 import { View } from "react-native";
-import { L1Introduction, L2PanGestureHandler, L3ScrollView, L4InterpolateColors } from "./lessons";
+import { L1Introduction, L2PanGestureHandler, L3ScrollView, L4InterpolateColors, L5DoubleTap } from "./lessons";
 import { L1Play, L2Play, L3Play } from "./playground";
 
 export default function App() {
@@ -15,7 +16,9 @@ export default function App() {
       {/* <L3ScrollView /> */}
       {/* <L3Play /> */}
 
-      <L4InterpolateColors />
+      {/* <L4InterpolateColors /> */}
+
+      <L5DoubleTap />
     </View>
   );
 }
