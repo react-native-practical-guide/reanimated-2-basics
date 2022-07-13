@@ -1,7 +1,8 @@
 import Animated, { useAnimatedScrollHandler, useAnimatedStyle, useSharedValue } from "react-native-reanimated";
 import Page from "../components/Page";
+import WORDS from "../constants/words";
 
-const WORDS = ['Lord', 'have', 'mercy'];
+
 
 export default function L3ScrollView() {
   const translateX = useSharedValue(0);
