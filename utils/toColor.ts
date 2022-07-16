@@ -1,4 +1,5 @@
 function toColor(num) {
+  "worklet";
   num >>>= 0;
   var b = num & 0xff,
     g = (num & 0xff00) >>> 8,
