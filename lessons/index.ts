@@ -4,3 +4,4 @@ export { default as L3ScrollView } from "./L3ScrollView";
 export { default as L4InterpolateColors } from "./L4InterpolateColors";
 export { default as L5DoubleTap } from "./L5DoubleTap";
 export { default as L6ScrollPanGesture } from "./L6ScrollPanGesture";
+export { default as L8CirularProgress } from "./L8CirularProgress";
