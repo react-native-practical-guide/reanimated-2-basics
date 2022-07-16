@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { Button, StyleSheet, View } from 'react-native';
-import Animated, { useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
-import Slider from '@react-native-community/slider';
+import Animated, { AnimateProps, useAnimatedProps, useAnimatedStyle, useSharedValue } from 'react-native-reanimated';
+import Slider, { SliderProps } from '@react-native-community/slider';
 
 import ColorPickerPlay from '../components/ColorPickerPlay';
 import COLORS from '../constants/colors';
@@ -11,6 +11,7 @@ import toColor from '../utils/toColor';
 const BACKGROUND_COLOR = `rgba(0,0,0,0.3)`;
 const PICKER_HEIGHT = height * 0.8;
 const PICKER_WIDTH = 250;
+const AnimatedSlider = Animated.createAnimatedComponent(Slider);
 
 const L7Play = () => {
   const pickedColor = useSharedValue<string | number>(COLORS[COLORS.length]);
@@ -45,6 +46,11 @@ const L7Play = () => {
   let color: string | number = '000';
   if (pickedColor.value) color = toColor(pickedColor.value).replace(/[^,]+(?=\))/, String((savedBackgroundOpacity).toFixed(2)));
 
+  const animatedProps = useAnimatedProps(() => ({
+    minimumTrackTintColor: pickedColor.value,
+    thumbTintColor: pickedColor.value
+  }))
+
   return (
     <View style={styles.container}>
       <View style={styles.sample} >
@@ -59,12 +65,13 @@ const L7Play = () => {
           <Animated.Text
             style={[{ fontSize: 20, fontWeight: 'bold' }, { opacity: range }, rColorStyle]} >Opacity: {(range).toFixed(2)}
           </Animated.Text>
-          <Slider
+          <AnimatedSlider
             style={{ width: 250, height: 40 }}
             minimumValue={0}
             maximumValue={1}
-            minimumTrackTintColor={`#${color}`}
-            thumbTintColor={`#${color}`}
+            // minimumTrackTintColor={`#${color}`}
+            // thumbTintColor={`#${color}`}
+            animatedProps={animatedProps}
             maximumTrackTintColor="#fff"
             value={1}
             onSlidingStart={() => setSliding('Sliding')}
