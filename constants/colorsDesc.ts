@@ -1,4 +1,4 @@
-const COLORS_DESC = [
+const COLORS_DEC = [
   "white",
   "black",
   "orange",
@@ -10,4 +10,4 @@ const COLORS_DESC = [
   "red",
 ];
 
-export default COLORS_DESC;
+export default COLORS_DEC;
