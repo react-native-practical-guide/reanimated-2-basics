@@ -5,6 +5,7 @@ import { L1Introduction, L2PanGestureHandler, L3ScrollView, L4InterpolateColors,
 import { L1Play, L2Play, L3Play, L7Play2, L7Play3, L8Play } from "./playground";
 import L7ColorPicker from './lessons/L7ColorPicker';
 import L7Play from './playground/L7Play';
+import L9SwipeDelete from './lessons/L9SwipeDelete';
 
 export default function App() {
   return (
@@ -27,10 +28,12 @@ export default function App() {
       {/* <L7ColorPicker /> */}
       {/* <L7Play /> */}
       {/* <L7Play2 /> */}
-      <L7Play3 />
+      {/* <L7Play3 /> */}
 
       {/* <L8CirularProgress /> */}
       {/* <L8Play /> */}
+
+      <L9SwipeDelete />
     </View>
   );
 }
