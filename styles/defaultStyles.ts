@@ -12,8 +12,8 @@ const defaultStyles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
-    width: 200,
-    textAlign: "center",
+    // width: 200,
+    // textAlign: "center",
   },
   circle: {
     alignItems: "center",
