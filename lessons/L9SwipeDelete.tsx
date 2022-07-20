@@ -18,10 +18,10 @@ const TASKS: TaskInterface[] = TITLES.map((title, index) => ({ title, index }));
 const BACKGROUND_COLOR = '#FAFBFF';
 
 export default function L9SwipeDelete() {
-  const [tasks, setTtasks] = useState(TASKS);
+  const [tasks, setTasks] = useState(TASKS);
 
   const onDismiss = useCallback((task: TaskInterface) => {
-    setTtasks((tasks => tasks.filter(item => item.index !== task.index)))
+    setTasks((tasks => tasks.filter(item => item.index !== task.index)))
   }, [])
 
   const scrollRef = useRef(null);
