@@ -9,3 +9,4 @@ export { default as L9SwipeDelete } from "./L9SwipeDelete";
 export { default as L10RippleEffect } from "./L10RippleEffect";
 export { default as L11Perspective } from "./L11Perspective";
 export { default as L12SlidingCounter } from "./L12SlidingCounter";
+export { default as L13Clock } from "./L13Clock";
