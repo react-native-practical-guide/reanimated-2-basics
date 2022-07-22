@@ -21,10 +21,20 @@ export default function L2PanGestureHandler() {
 
     },
     onFinish: () => {
-      const distance =
-        Math.sqrt(translateX.value ** 2 + translateY.value ** 2);
+      /* Check if the distance is smaller than the circle radius. 
+      Find the distance, by using the Pythagorean theorem */
+      // const distance =
+      //   Math.sqrt(translateX.value ** 2 + translateY.value ** 2);
+      // console.log('distance', translateX.value, translateY.value);
 
-      if (distance < CIRCLE_RADIUS + SIZE / 2) {
+      // if (distance < CIRCLE_RADIUS + SIZE / 2) {
+      //   translateX.value = withSpring(0);
+      //   translateY.value = withSpring(0);
+      // }
+
+      /* Naive way */
+      const rad = CIRCLE_RADIUS + SIZE / 2
+      if ((translateX.value > rad) || (translateY.value < rad)) {
         translateX.value = withSpring(0);
         translateY.value = withSpring(0);
       }

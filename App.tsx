@@ -9,10 +9,10 @@ import L7Play from './playground/L7Play';
 export default function App() {
   return (
     <View style={{ flex: 1 }} >
-      <L1Introduction />
+      {/* <L1Introduction /> */}
       {/* <L1Play /> */}
 
-      {/* <L2PanGestureHandler /> */}
+      <L2PanGestureHandler />
       {/* <L2Play /> */}
 
       {/* <L3ScrollView /> */}

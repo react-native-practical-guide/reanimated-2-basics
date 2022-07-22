@@ -19,14 +19,6 @@ export default function L1Introduction() {
   const progress = useSharedValue(1);
   const scale = useSharedValue(1);
 
-  const reanimatedStyle = useAnimatedStyle(() => {
-    return {
-      opacity: progress.value,
-      borderRadius: (progress.value * SIZE) / 2,
-      transform: [{ scale: scale.value }, { rotate: handleRotation(progress) }],
-    };
-  }, []);
-
   useEffect(() => {
     progress.value = withRepeat(
       withTiming(0.5, {
@@ -37,6 +29,14 @@ export default function L1Introduction() {
       true
     );
     scale.value = withRepeat(withSpring(2, { damping: 20, stiffness: 90 }), 3, true);
+  }, []);
+
+  const reanimatedStyle = useAnimatedStyle(() => {
+    return {
+      opacity: progress.value,
+      borderRadius: (progress.value * SIZE) / 2,
+      transform: [{ scale: scale.value }, { rotate: handleRotation(progress) }],
+    };
   }, []);
 
   return (
