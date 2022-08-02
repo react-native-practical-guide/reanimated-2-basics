@@ -5,6 +5,7 @@ import { L10RippleEffect, L11Perspective, L12SlidingCounter, L13Clock, L1Introdu
 import { L1Play, L2Play, L3Play, L7Play2, L7Play3, L8Play } from "./playground";
 import L7ColorPicker from './lessons/L7ColorPicker';
 import L7Play from './playground/L7Play';
+import L14Layout from './lessons/L14Layout';
 
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
       {/* <L1Introduction /> */}
       {/* <L1Play /> */}
 
-      <L2PanGestureHandler />
+      {/* <L2PanGestureHandler /> */}
       {/* <L2Play /> */}
 
       {/* <L3ScrollView /> */}
@@ -41,6 +42,8 @@ export default function App() {
       {/* <L12SlidingCounter /> */}
 
       {/* <L13Clock /> */}
+
+      <L14Layout />
 
     </View>
   );
