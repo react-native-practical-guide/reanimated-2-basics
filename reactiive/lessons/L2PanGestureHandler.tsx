@@ -1,10 +1,9 @@
+import React from "react";
 import { View } from "react-native";
 import { PanGestureHandler, PanGestureHandlerGestureEvent } from "react-native-gesture-handler";
 import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue, withSpring } from "react-native-reanimated";
 import defaultStyles, { CIRCLE_RADIUS, SIZE } from "../styles/defaultStyles";
 import { CtxType } from "../types/types";
-
-
 
 export default function L2PanGestureHandler() {
   const translateX = useSharedValue(0);
@@ -18,7 +17,6 @@ export default function L2PanGestureHandler() {
     onActive: (event, context) => {
       translateX.value = event.translationX + context.translateX;
       translateY.value = event.translationY + context.translateY;
-
     },
     onFinish: () => {
       /* Check if the distance is smaller than the circle radius. 
@@ -33,8 +31,8 @@ export default function L2PanGestureHandler() {
       // }
 
       /* Naive way */
-      const rad = CIRCLE_RADIUS + SIZE / 2
-      if ((translateX.value > rad) || (translateY.value < rad)) {
+      const rad = CIRCLE_RADIUS + SIZE
+      if (Math.abs(translateX.value) + Math.abs(translateY.value) < rad) {
         translateX.value = withSpring(0);
         translateY.value = withSpring(0);
       }

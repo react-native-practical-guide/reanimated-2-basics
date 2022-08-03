@@ -21,7 +21,7 @@ const L1Play = () => {
   }, []);
 
   useEffect(() => {
-    top.value = withRepeat(withTiming(500, { duration: 1000 }))
+    top.value = withTiming(500, { duration: 1000 });
     rotate.value = withSpring(2);
 
     left.value = withDelay(1000, withTiming(250, { duration: 1000 }))
