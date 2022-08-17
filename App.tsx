@@ -2,9 +2,10 @@ import 'react-native-gesture-handler'; // IMPORTANT !!!
 import React from 'react';
 import { View } from "react-native";
 import { L10RippleEffect, L11Perspective, L12SlidingCounter, L13Clock, L1Introduction, L2PanGestureHandler, L3ScrollView, L4InterpolateColors, L5DoubleTap, L6ScrollPanGesture, L8CirularProgress, L9SwipeDelete } from "./reactiive/lessons";
-import { L1Play, L2Play, L3Play, L7Play2, L7Play3, L8Play } from "./reactiive/playground";
+import { L1Play, L1Play1, L2Play, L3Play, L7Play2, L7Play3, L8Play } from "./reactiive/playground";
 import { L2_BottomSheet } from './eveningkid/lessons';
 import { L1_AnimatedSensor } from './4twiggers';
+import { SaveOurSouls, TabMe } from './footios/playground/intex';
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       {/* /// REACTIIVE LESSONS ///*/}
       {/* <L1Introduction /> */}
       {/* <L1Play /> */}
+      {/* <L1Play1 /> */}
 
       {/* <L2PanGestureHandler /> */}
       {/* <L2Play /> */}
@@ -51,9 +53,12 @@ export default function App() {
 
       {/* /////////////// */}
       {/* /// 4twiggers ///*/}
-      <L1_AnimatedSensor />
+      {/* <L1_AnimatedSensor /> */}
 
-
+      {/* ///////////////// */}
+      {/* footios */}
+      {/* <SaveOurSouls /> */}
+      <TabMe />
 
     </View>
 

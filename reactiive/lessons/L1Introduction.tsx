@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { View } from "react-native";
 import Animated, {
   Easing,
@@ -25,7 +25,7 @@ export default function L1Introduction() {
         duration: 2000,
         easing: Easing.out(Easing.cubic),
       }),
-      3,
+      1,
       true
     );
     scale.value = withRepeat(withSpring(2, { damping: 20, stiffness: 90 }), 3, true);
