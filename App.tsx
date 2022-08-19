@@ -6,6 +6,7 @@ import { L1Play, L1Play1, L2Play, L3Play, L7Play2, L7Play3, L8Play } from "./rea
 import { L2_BottomSheet } from './eveningkid/lessons';
 import { L1_AnimatedSensor } from './4twiggers';
 import { SaveOurSouls, TabMe } from './footios/playground/intex';
+import { Countdown } from './catalinMiron/lessons';
 
 export default function App() {
   return (
@@ -55,10 +56,15 @@ export default function App() {
       {/* /// 4twiggers ///*/}
       {/* <L1_AnimatedSensor /> */}
 
+
+      {/* /////////////// */}
+      {/* Catalin Miron */}
+      <Countdown />
+
       {/* ///////////////// */}
       {/* footios */}
       {/* <SaveOurSouls /> */}
-      <TabMe />
+      {/* <TabMe /> */}
 
     </View>
 
