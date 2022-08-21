@@ -1,17 +1,22 @@
-import * as React from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   Vibration,
   StatusBar,
-  Easing,
-  TextInput,
   Dimensions,
-  Animated,
   TouchableOpacity,
-  FlatList,
-  Text,
   View,
   StyleSheet,
 } from "react-native";
+
+import Animated, {
+  interpolate,
+  useAnimatedStyle,
+  useSharedValue,
+  withDelay,
+  withSequence,
+  withTiming,
+} from "react-native-reanimated";
+
 const { width, height } = Dimensions.get("window");
 const colors = {
   black: "#323F4E",
@@ -20,58 +25,46 @@ const colors = {
 };
 
 export default function Countdown() {
-  const timerAnimation = React.useRef(new Animated.Value(height)).current;
-  const buttonAnimation = React.useRef(new Animated.Value(0)).current;
+  const timerAnimation = useSharedValue(height);
+  const buttonAnimation = useSharedValue(0);
 
-  const [duration, setDuration] = React.useState(5);
+  const [duration, setDuration] = useState(5);
 
-  const animation = React.useCallback(() => {
-    Animated.sequence([
-      Animated.timing(buttonAnimation, {
-        toValue: 1,
-        duration: 300,
-        useNativeDriver: true,
-      }),
-      Animated.timing(timerAnimation, {
-        toValue: 0,
-        duration: 300,
-        useNativeDriver: true,
-      }),
-      Animated.timing(timerAnimation, {
-        toValue: height,
+  const animationHandler = () => {
+    buttonAnimation.value = withTiming(1, { duration: 300 });
+
+    timerAnimation.value = withSequence(
+      withDelay(300, withTiming(0, { duration: 300 })),
+      (timerAnimation.value = withTiming(height, {
         duration: duration * 1000,
-        useNativeDriver: true,
-      }),
-      Animated.delay(400),
-    ]).start(() => {
-      Vibration.cancel();
-      Vibration.vibrate();
-      Animated.timing(buttonAnimation, {
-        toValue: 0,
-        duration: 300,
-        useNativeDriver: true,
-      }).start();
-    });
+      }))
+    );
+    buttonAnimation.value = withDelay(
+      duration * 1000,
+      withTiming(0, { duration: 300 })
+    );
+    Vibration.cancel();
+    Vibration.vibrate();
+  };
+
+  useEffect(() => {
+    // animationHandler();
   }, [duration]);
 
-  const buttonOpacity = buttonAnimation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 0],
+  const sinkStyle = useAnimatedStyle(() => {
+    return { transform: [{ translateY: timerAnimation.value }] };
   });
 
-  const buttonTranslateY = buttonAnimation.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 200],
+  const buttonStyle = useAnimatedStyle(() => {
+    const opacity = interpolate(buttonAnimation.value, [0, 1], [1, 0]);
+    const translateY = interpolate(buttonAnimation.value, [0, 1], [0, 200]);
+    return { opacity, transform: [{ translateY }] };
   });
 
   return (
     <View style={styles.container}>
       <Animated.View
-        style={[
-          StyleSheet.absoluteFillObject,
-          styles.sink,
-          { transform: [{ translateY: timerAnimation }] },
-        ]}
+        style={[StyleSheet.absoluteFillObject, styles.sink, sinkStyle]}
       />
       <Animated.View
         style={[
@@ -80,11 +73,10 @@ export default function Countdown() {
             justifyContent: "flex-end",
             alignItems: "center",
             paddingBottom: 100,
-            opacity: buttonOpacity,
-            transform: [{ translateY: buttonTranslateY }],
           },
+          buttonStyle,
         ]}>
-        <TouchableOpacity onPress={animation}>
+        <TouchableOpacity onPress={animationHandler}>
           <View style={styles.roundButton} />
         </TouchableOpacity>
       </Animated.View>
